@@ -1,0 +1,11 @@
+<!-- 方式一  -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="org.mybatis.hbatis.orm.mapper,com.tiglium.hems.biz.*.dao" />
+	</bean>
+	<bean id="hbatisSessionManager" class="org.mybatis.hbatis.spring.HbatisSqlSessionDaoSupport" lazy-init="false" scope="singleton">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+-->
+	
+<!-- 方式 二-->
+
