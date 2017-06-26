@@ -117,8 +117,8 @@
 					<if test="fcIndex gt 0">${g.relation} </if>
 					${c.field} ${c.op}
 					<choose>
-						<when test="c.op == 'between'">#{c.value[0]} and #{c.value[1]}</when>
-						<when test="c.op == 'in'">
+						<when test="c.op == 'between' or c.op=='not between'">#{c.value[0]} and #{c.value[1]}</when>
+						<when test="c.op == 'in' or c.op=='not in'">
 							<foreach collection="c.value" item="v" open="(" separator="," close=")">
 								#{v}
 							</foreach>
