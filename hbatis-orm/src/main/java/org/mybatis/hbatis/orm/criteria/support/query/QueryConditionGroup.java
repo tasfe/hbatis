@@ -34,6 +34,14 @@ public class QueryConditionGroup {
 		this.relation = relation;
 	}
 	
-	
+	public QueryConditionGroup addFieldCondition(String field,String op,Object val){
+		QueryFieldCondition fc = new QueryFieldCondition();
+		fc.setField(field);
+		fc.setOp(op);
+		fc.setValue(val);
+		
+		this.getFieldConditions().add(fc);
+		return this;
+	}
 	
 }
