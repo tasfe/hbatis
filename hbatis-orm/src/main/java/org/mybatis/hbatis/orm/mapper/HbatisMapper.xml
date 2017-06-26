@@ -21,7 +21,7 @@
 		</choose>
 	</sql>
 	<!-- 约束 -->
-	<sql id="Restriction_Vpm_NoAlias">
+	<sql id="Restriction_NoAlias">
 		<choose>
 			<when test="r.singleValue">
 				${r.fieldNode.fieldMeta.columnName} ${r.oper}
@@ -65,7 +65,7 @@
 		<where>
 			<foreach collection="st.restrictions.criterionList" item="r"
 				separator="and">
-				<include refid="Restriction_Vpm_NoAlias" />
+				<include refid="Restriction_NoAlias" />
 			</foreach>
 		</where>
 	</update>
@@ -76,7 +76,7 @@
 		<where>
 			<foreach collection="restrictions.criterionList" item="r"
 				separator="and">
-				<include refid="Restriction_Vpm_NoAlias" />
+				<include refid="Restriction_NoAlias" />
 			</foreach>
 		</where>
 	</delete>
