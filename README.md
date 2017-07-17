@@ -391,3 +391,4 @@ public OrgInfo findByCode(String code) {
 </mapper>
 ```
 > 如果只是单表的CRUD操作，xml内容可为空。但为了减少后期人工添加的麻烦，于是就在模块里生成...
+> 关于分页：因本人一直使用mysql，未编写其它数据库的分页实现
