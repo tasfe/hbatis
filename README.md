@@ -38,6 +38,157 @@
 ```
  > 如此即开启了hbatis支持，是不是 So easy ?!
  
+ ## Entity
+ ```Java
+ @Table(OrgInfo.EntityNode.class)
+public class OrgInfo implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	/**
+	  * ID
+	  * nullable:true,length:11
+	  */
+	@Column(primaryKey = true,autoIncrement = true,comment = "ID")	
+	private Integer id;
+	/**
+	  * 
+	  * nullable:false,length:32
+	  */
+	@Column(comment = "")	
+	@NotNull
+	private String code;
+	/**
+	  * 
+	  * nullable:false,length:128
+	  */
+	@Column(comment = "")	
+	@NotNull
+	private String secret;
+	/**
+	  * 名称
+	  * nullable:false,length:64
+	  */
+	@Column(comment = "名称")	
+	@NotNull
+	private String name;
+	/**
+	  * 图片
+	  * nullable:true,length:256
+	  */
+	@Column(comment = "图片")	
+	private String imgSrc;
+	/**
+	  * 类型(1:个人,2:机构,3:机关单位,4:企业)
+	  * nullable:false,length:11
+	  */
+	@Column(comment = "类型(1:个人,2:机构,3:机关单位,4:企业)")	
+	@NotNull
+	private Integer type;
+	/**
+	  * 官网
+	  * nullable:true,length:250
+	  */
+	@Column(comment = "官网")	
+	private String website;
+	/**
+	  * 地址
+	  * nullable:true,length:250
+	  */
+	@Column(comment = "地址")	
+	private String address;
+	/**
+	  * 电话
+	  * nullable:true,length:32
+	  */
+	@Column(comment = "电话")	
+	private String tel;
+	/**
+	  * 邮箱
+	  * nullable:true,length:64
+	  */
+	@Column(comment = "邮箱")	
+	private String email;
+	/**
+	  * 联系人
+	  * nullable:true,length:32
+	  */
+	@Column(comment = "联系人")	
+	private String contactor;
+	/**
+	  * 状态
+	  * nullable:false,length:4
+	  */
+	@Column(comment = "状态")	
+	@NotNull
+	private Byte status;
+	/**
+	  * 备注
+	  * nullable:true,length:500
+	  */
+	@Column(comment = "备注")	
+	private String remark;
+	/**
+	  * 
+	  * nullable:false,length:19
+	  */
+	@Column(comment = "")	
+	@NotNull
+	private Date opOn;
+	/**
+	  * 
+	  * nullable:false,length:11
+	  */
+	@Column(comment = "")	
+	@NotNull
+	private Integer opBy;
+        
+	... get and set 
+
+    public static class EntityNode extends AbstractEntityNode<OrgInfo> {
+        public static final EntityNode INSTANCE = new EntityNode("toi");;
+    	/** ID */
+        public FieldNode<OrgInfo, Integer> id =  createFieldNode("id","id",Integer.class,JdbcType.INTEGER);
+    	/**  */
+        public FieldNode<OrgInfo, String> code =  createFieldNode("code","code",String.class,JdbcType.VARCHAR);
+    	/**  */
+        public FieldNode<OrgInfo, String> secret =  createFieldNode("secret","secret",String.class,JdbcType.VARCHAR);
+    	/** 名称 */
+        public FieldNode<OrgInfo, String> name =  createFieldNode("name","name",String.class,JdbcType.VARCHAR);
+    	/** 图片 */
+        public FieldNode<OrgInfo, String> imgSrc =  createFieldNode("imgSrc","img_src",String.class,JdbcType.VARCHAR);
+    	/** 类型(1:个人,2:机构,3:机关单位,4:企业) */
+        public FieldNode<OrgInfo, Integer> type =  createFieldNode("type","type",Integer.class,JdbcType.INTEGER);
+    	/** 官网 */
+        public FieldNode<OrgInfo, String> website =  createFieldNode("website","website",String.class,JdbcType.VARCHAR);
+    	/** 地址 */
+        public FieldNode<OrgInfo, String> address =  createFieldNode("address","address",String.class,JdbcType.VARCHAR);
+    	/** 电话 */
+        public FieldNode<OrgInfo, String> tel =  createFieldNode("tel","tel",String.class,JdbcType.VARCHAR);
+    	/** 邮箱 */
+        public FieldNode<OrgInfo, String> email =  createFieldNode("email","email",String.class,JdbcType.VARCHAR);
+    	/** 联系人 */
+        public FieldNode<OrgInfo, String> contactor =  createFieldNode("contactor","contactor",String.class,JdbcType.VARCHAR);
+    	/** 状态 */
+        public FieldNode<OrgInfo, Byte> status =  createFieldNode("status","status",Byte.class,JdbcType.TINYINT);
+    	/** 备注 */
+        public FieldNode<OrgInfo, String> remark =  createFieldNode("remark","remark",String.class,JdbcType.VARCHAR);
+    	/**  */
+        public FieldNode<OrgInfo, Date> opOn =  createFieldNode("opOn","op_on",Date.class,JdbcType.TIMESTAMP);
+    	/**  */
+        public FieldNode<OrgInfo, Integer> opBy =  createFieldNode("opBy","op_by",Integer.class,JdbcType.INTEGER);
+	
+        /**
+         * @param alias 别名
+         */
+        public EntityNode(String alias) {
+            super(OrgInfo.class,"t_org_info",alias);
+        }
+    }
+    
+    // ==== 自定义属性 ====
+}
+```
+ 
  ## DAO
  > 继承HbatisMapper
  ```Java
