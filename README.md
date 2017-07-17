@@ -63,48 +63,48 @@ public interface OrgInfoMapper extends HbatisMapper<OrgInfo, Integer> {
 
 ```Java
 /**
-	 * 删除
-	 * 
-	 * @param id
-	 */
-	public void deleteById(Integer pk) {
-		repo.deleteByPK(pk);
-	}
+ * 删除
+ * 
+ * @param id
+ */
+public void deleteById(Integer pk) {
+	repo.deleteByPK(pk);
+}
 
-	/**
-	 * 通过id获取
-	 * 
-	 * @param id
-	 * @return
-	 */
-	public OrgInfo findById(Integer pk) {
-		return repo.selectByPK(pk);
-	}
+/**
+ * 通过id获取
+ * 
+ * @param id
+ * @return
+ */
+public OrgInfo findById(Integer pk) {
+	return repo.selectByPK(pk);
+}
 
-	/**
-	 * 通过非空属性查询
-	 * 
-	 * @param OrgInfo
-	 * @return
-	 */
-	public List<OrgInfo> findByNotNullProps(OrgInfo entity) {
+/**
+ * 通过非空属性查询
+ * 
+ * @param OrgInfo
+ * @return
+ */
+public List<OrgInfo> findByNotNullProps(OrgInfo entity) {
 
-		SelectStatement<OrgInfo> st = StatementBuilder.buildSelectSelective(entity);
-		return repo.selectByStatement(st);
-	}
-  /**
-	 * 单表通用查询样例
-	 * 
-	 * @param OrgInfo
-	 * @return
-	 */
-  @Override
-	public OrgInfo findByCode(String code) {
-		OrgInfo.EntityNode n = OrgInfo.EntityNode.INSTANCE;
-		SelectStatement<OrgInfo> st = StatementBuilder.buildSelect(n);
-		st.restrictions().add(n.code.eq(code));
-		return CollectionUtil.uniqueResult(this.repo.selectByStatement(st));
-	}
+	SelectStatement<OrgInfo> st = StatementBuilder.buildSelectSelective(entity);
+	return repo.selectByStatement(st);
+}
+/**
+ * 单表通用查询样例
+ * 
+ * @param OrgInfo
+ * @return
+ */
+@Override
+public OrgInfo findByCode(String code) {
+	OrgInfo.EntityNode n = OrgInfo.EntityNode.INSTANCE;
+	SelectStatement<OrgInfo> st = StatementBuilder.buildSelect(n);
+	st.restrictions().add(n.code.eq(code));
+	return CollectionUtil.uniqueResult(this.repo.selectByStatement(st));
+}
   
   ```
 
