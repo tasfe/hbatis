@@ -261,4 +261,7 @@ public OrgInfo findByCode(String code) {
 
 # 代码生成器
 > 角色类似 mybatis-generator
+
 ![](1.png)
+
+![](2.png)
